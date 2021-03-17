@@ -20,4 +20,22 @@
         type="java.lang.String"/>
 </bean>
 
+<bean id="format" class="java.time.format.DateTimeFormatter"
+factory-method="ofPattern">
+	<constructor-arg value="dd/MM/yyyy"></constructor-arg>
+</bean>
+
+<bean id="birthDate" class="java.time.LocalDate" factory-method="parse">
+	<constructor-arg value="28/02/1994"></constructor-arg>
+	<constructor-arg ref="format"></constructor-arg>
+</bean>
+
+<bean id="student" class="com.privalia.ejercicio1.Student">
+		<property name="idStudent" value="1"></property>
+		<property name="name" value="jordi"></property>
+		<property name="surname" value="soto"></property>
+		<property name="age" value="34"></property>	
+		<property name="dateOfBirth" ref="birthDate"></property>		
+</bean>
+
 </beans>
